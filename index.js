@@ -24,7 +24,6 @@ connection.once('open', () => {
 const dbRouter = require('./src/routes/db');
 app.use('/api', dbRouter);
 
-// Create build folder during deployment, two
 const path = require('path')
 if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));

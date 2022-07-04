@@ -15,7 +15,7 @@ function App() {
           .catch(err => console.log(err));
         break;
       case 'POST':
-        axios.post(`api/post/${uid}`, { document: 'hello database' })
+        axios.post(`api/${uid}`, { document: 'hello database' })
           .then(res => console.log('response: ', res))
           .catch(err => console.log(err));
         break;  
