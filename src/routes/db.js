@@ -8,7 +8,7 @@ router.route('/:uid').get((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err))
 })
 
-router.route('/post/:uid').post((req, res) => {
+router.route('/:uid').post((req, res) => {
     const uid = req.params.uid;
     const document = req.body.document;
 
