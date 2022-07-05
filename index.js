@@ -21,8 +21,9 @@ connection.once('open', () => {
     console.log("MongoDB database connection established successfully")
 })
 
-const dbRouter = require('./src/routes/db');
-app.use('/api', dbRouter);
+const WATCHA_API_KEY = process.env.WATCHA_API_KEY;
+const userRouter = require('./src/routes/user');
+app.use(`/api/${WATCHA_API_KEY}`, userRouter);
 
 const path = require('path')
 if (process.env.NODE_ENV === "production") {
