@@ -5,8 +5,7 @@ import * as types from '../types';
 const initState = {
   auth: {
     uid: null,
-    email: '',
-    pw: '',
+    username: '',
   },
   authError: null,
 };
@@ -20,10 +19,10 @@ const authReducer = (state = initState, action) => {
         authError: null,
       };
     case types.SIGNIN_USER_ERROR:
-      console.error('signin error', action.err.message);
+      console.error('signin error', action.err);
       return {
         ...state,
-        authError: action.err.message,
+        authError: action.err,
       };
     case types.SIGNOUT_USER_SUCCESS:
       console.log('signout success');
@@ -32,22 +31,23 @@ const authReducer = (state = initState, action) => {
         authError: null,
       };
     case types.SIGNOUT_USER_ERROR:
-      console.error('signout error', action.err.message);
+      console.error('signout error', action.err);
       return {
         ...state,
-        authError: action.err.message,
+        authError: action.err,
       };
     case types.SIGNUP_USER_SUCCESS:
       console.log('signup success');
       return {
         ...state,
+        auth: action.payload,
         authError: null,
       };
     case types.SIGNUP_USER_ERROR:
-      console.error('signup error ', action.err.message);
+      console.error('signup error ', action.err);
       return {
         ...state,
-        authError: action.err.message,
+        authError: action.err,
       };
     default:
       return state;

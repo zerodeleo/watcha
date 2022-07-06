@@ -12,8 +12,7 @@ import { signIn } from '../../store/actions/authActions';
 
 function SignIn({ signInDispatch, authError, auth }) {
   const [credentials, setCredentials] = useState({
-    email: '',
-    password: '',
+    username: '',
   });
 
   const handleChange = (e) => {
@@ -37,18 +36,13 @@ function SignIn({ signInDispatch, authError, auth }) {
             <Input
               onChange={handleChange}
               type="text"
-              name="email"
-              value={credentials.email}
-            />
-            <Input
-              onChange={handleChange}
-              type="password"
-              name="password"
-              value={credentials.password}
+              name="username"
+              value={credentials.username}
             />
             <Button
               onSubmit={handleSubmit}
               txt="sign in"
+              type="submit"
             />
           </form>
         )}

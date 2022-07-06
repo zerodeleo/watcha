@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 
@@ -10,10 +10,11 @@ import Error from '../error/Error';
 // Actions
 import { signUp } from '../../store/actions/authActions';
 
-function SignIn({ signUpDispatch, authError, auth }) {
+const SignUp = ({ signUpDispatch, authError, auth }) => {
+  if (auth.uid) return <Navigate to="/" />;
+
   const [credentials, setCredentials] = useState({
-    email: '',
-    password: '',
+    username: '',
   });
 
   const handleChange = (e) => {
@@ -26,29 +27,23 @@ function SignIn({ signUpDispatch, authError, auth }) {
     signUpDispatch(credentials);
   };
 
-  if (auth.uid) return <Navigate to="/" />;
 
+  console.log('SignUp Component')
   return (
     <section className="SignUp">
       { authError
-        ? <Error message={authError} />
+        ? <Error mess age={authError} />
         : (
           <form onSubmit={handleSubmit}>
             <Input
               onChange={handleChange}
               type="text"
-              name="email"
-              value={credentials.email}
-            />
-            <Input
-              onChange={handleChange}
-              type="password"
-              name="password"
-              value={credentials.password}
+              name="username"
+              value={credentials.username}
             />
             <Button
               onSubmit={handleSubmit}
-              txt="sign up"
+              txt="enter"
             />
           </form>
         )}
@@ -56,13 +51,15 @@ function SignIn({ signUpDispatch, authError, auth }) {
   );
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
   authError: state.auth.authError,
   auth: state.auth,
-});
+}};
 
 const mapDispatchToProps = (dispatch) => ({
   signUpDispatch: (credentials) => dispatch(signUp(credentials)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp);

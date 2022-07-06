@@ -1,11 +1,11 @@
 import React from 'react';
-import SignIn from './auth/SignIn';
+import SignUp from './auth/SignUp';
 
 const Dash = () => {
   console.log('Dash Component');
   return (
     <section className="Dash">
-      <SignIn />
+      <SignUp />
     </section>
   );
 };

@@ -26,7 +26,7 @@ router.route(`/`).post(async (req, res) => {
     } else {
         const newUpload = new User({ uid, username });
         newUpload.save()
-            .then(() => res.json(newUpload))
+            .then(() => res.json({ uid, username }))
             .catch(err => res.status(400).json(err.message));
     }
 });
