@@ -37,6 +37,10 @@ button:hover, .WatchItem:hover {
     color:rgba(0, 0, 0, 0.4);
 }
 
+.WatchItem:hover {
+  border-radius: 10px;
+}
+
 .globe {
     animation: rotation 15s infinite linear;
 }

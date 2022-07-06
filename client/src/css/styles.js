@@ -1,5 +1,5 @@
 export const input = 'fade-in h-38 font-center m-10 w-p-100 br-8 bs-28i ls-2 font-red-hat';
-export const button = 'fade-in h-38 button m-10 w-p-100 br-10 bs-28 font-red-hat uppercase ls-2 bold pointer';
+export const button = 'fade-in pl-10 pr-10 h-38 button m-10 w-p-100 br-10 bs-28 font-red-hat uppercase ls-2 bold pointer';
 export const wrapper = '';
 export const p = 'fade-in ls-2 font-center w-p-100';
 export const pName = 'capitalize';
@@ -20,6 +20,6 @@ export const NavBarSignedIn = 'flex flex-col justify-center align-center';
 export const Description = '';
 export const Footer = 'flex justify-center';
 export const Dash = 'flex flex-col justify-center align-center w-p-90';
-export const WatchList = 'grid grid-3 w-p-100 font-center';
-export const WatchItem = 'bs-28 br-10 white m-10 p-10 pointer';
+export const WatchList = 'flex flex-col font-center';
+export const WatchItem = 'flex m-5';
 export const Globe = 'fs-3';
