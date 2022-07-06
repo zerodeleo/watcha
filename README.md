@@ -16,3 +16,61 @@ lear
 - Connect to GitHub
 - Enable automatic deploys
 - Add .env ariables to heroku config vars
+
+# BRANCHES
+## 1. watcha-step-1
+- ### Project setup
+    - #### BE
+        - **Simple express server**
+            - MongoDB connection
+            - Simple API route with post and get
+                - <code>api/:uid</code>
+    - #### FE
+        - **Simple component with buttons**
+            - the get button
+                - *gets a collection from db*
+                    - <code>api/:uid</code>
+            - the post button
+                - *posts a collection to db*
+                    - <code>api/:uid</code>
+    - #### UTILS
+        - Heroku deployment              
+## 2. watcha-step-2
+- ### Project setup
+    - #### BE
+        - **Simple express server**
+            - MongoDB connection
+            - Simple API route with post and get
+                - <code>api/:uid</code>
+    - #### FE
+        - **Simple SignIn component with user inputs**
+            - the submit button
+                - *posts a collection to db*
+                    - <code>api/:uid</code>
+        - **Redux as state management**            
+    - #### UTILS
+        - Heroku deployment     
+        - ESlint         
+        - Redux
+## 3. watcha-step-3
+- ### Project setup
+    - #### BE
+        - **Simple express server**
+            - MongoDB connection
+            - API route with post and get
+                - <code>api/API_KEY/:uid</code>
+                    - **post**
+                        - creates user with email
+                        - checks if user exists
+                    - **get**
+                        - gets the user    
+    - #### FE
+        - **SpeakWithDataBase component**
+            - the submit button
+                - *posts a collection to db*
+                    - <code>api/API_KEY/:uid</code>
+        - **Redux as state management**            
+    - #### UTILS
+        - Heroku deployment     
+        - ESlint  
+        - Redux       
