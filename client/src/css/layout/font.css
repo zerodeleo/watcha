@@ -1,0 +1,72 @@
+.uppercase {
+    text-transform: uppercase;
+}
+
+.lowercase {
+    text-transform: lowercase;
+}
+
+.font-stalemate {
+    font-family: 'Stalemate', cursive;
+}
+
+.font-red-hat {
+    font-family: 'Red Hat Display', sans-serif;
+}
+
+.font-courier {
+    font-family: "Courier New";
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.oblique {
+    font-style: oblique;
+}
+
+.font-center {
+    text-align: center;
+}
+
+.font-right {
+    text-align: right;
+}
+
+.font-left {
+    text-align: left;
+}
+
+.font-justify {
+    text-align: justify;
+}
+
+.ls-1 { letter-spacing: 1px }
+.ls-1 { letter-spacing: 1px }
+.ls-2 { letter-spacing: 2px }
+.ls-3 { letter-spacing: 3px }
+.ls-4 { letter-spacing: 4px }
+.ls-5 { letter-spacing: 5px }
+.ls-6 { letter-spacing: 6px }
+.ls-7 { letter-spacing: 7px }
+.ls-8 { letter-spacing: 8px }
+.ls-9 { letter-spacing: 9px }
+.ls-10 { letter-spacing: 10px }
+
+.fs-1 { font-size: 1rem }
+.fs-1-5 { font-size: 1.5rem }
+.fs-1-7 { font-size: 1.7rem }
+.fs-2 { font-size: 2rem }
+.fs-3 { font-size: 3rem }
+.fs-4 { font-size: 4rem }
+.fs-5 { font-size: 5rem }
+.fs-6 { font-size: 6rem }
+.fs-7 { font-size: 7rem }
+.fs-8 { font-size: 8rem }
+.fs-9 { font-size: 9rem }
+.fs-10 { font-size: 10rem }

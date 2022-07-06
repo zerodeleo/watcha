@@ -1,5 +1,39 @@
+@import 'layout/padding.css';
+@import 'layout/margin.css';
+@import 'layout/width.css';
+@import 'layout/positions.css';
+@import 'layout/display.css';
+@import 'layout/font.css';
+@import 'layout/background.css';
+@import 'layout/height.css';
+@import 'layout/border.css';
+@import 'layout/line-height.css';
+@import 'layout/transform.css';
+@import 'layout/box-shadow.css';
+
+html {
+    height: 100%;
+}
+
 body {
     width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
     background-color: rgba(255,255,255,0.7); /* For browsers that do not support gradients */
     background-image: linear-gradient(to bottom right, rgb(220,190,190), rgb(250,250,250));
 }
+
+button, input, p, h1 {
+    border: none;
+    padding: 0;
+    margin: 0;
+    color:rgba(0, 0, 0, 0.6);
+    outline: none;
+}
+
+button:hover, .WatchItem:hover {
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px inset, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px inset, rgba(0, 0, 0, 0.2) 0px -3px 0px;
+    color:rgba(0, 0, 0, 0.4);
+}
+

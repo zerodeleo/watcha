@@ -22,8 +22,11 @@ connection.once('open', () => {
 })
 
 const WATCHA_API_KEY = process.env.WATCHA_API_KEY;
-const userRouter = require('./src/routes/user');
-app.use(`/api/${WATCHA_API_KEY}`, userRouter);
+const userRouter = require('./src/routes/users');
+app.use(`/api/users/${WATCHA_API_KEY}`, userRouter);
+
+const watchaRouter = require('./src/routes/watchas');
+app.use(`/api/watchas/${WATCHA_API_KEY}`, watchaRouter);
 
 const path = require('path')
 if (process.env.NODE_ENV === "production") {

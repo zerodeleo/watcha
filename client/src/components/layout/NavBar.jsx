@@ -1,5 +1,28 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-const NavBar = () => <section className="NavBar">NavBar Component</section>;
+// Components
+import NavBarSignedIn from './NavBarSignedIn';
+import NavBarSignedOut from './NavBarSignedOut';
 
-export default NavBar;
+import * as styles from '../../css/styles'
+
+const NavBar = ({ auth }) => {
+  return (
+    <section className={`NavBar ${styles.NavBar}`}>
+      { auth.uid ? <NavBarSignedIn auth={auth} /> : <NavBarSignedOut /> }
+    </section>
+  )
+};
+
+const mapStateToProps = (state) => {
+  return {
+  auth: state.auth,
+}};
+
+const mapDispatchToProps = (dispatch) => ({
+
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
+

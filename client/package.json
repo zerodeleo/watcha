@@ -15,6 +15,7 @@
     "react-scripts": "5.0.1",
     "redux": "^4.2.0",
     "redux-thunk": "^2.4.1",
+    "rooks": "^5.11.8",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -24,7 +25,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint '**/*.jsx' && eslint '**/*.js' --fix"
   },
-  "proxy": "http://localhost:4000/",
+  "proxy": "http://127.0.0.1:4000",
   "eslintConfig": {
     "extends": [
       "react-app",

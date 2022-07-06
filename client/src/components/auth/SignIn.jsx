@@ -10,6 +10,9 @@ import Error from '../error/Error';
 // Actions
 import { signIn } from '../../store/actions/authActions';
 
+// Styles
+import * as styles from '../../css/styles';
+
 function SignIn({ signInDispatch, authError, auth }) {
   const [credentials, setCredentials] = useState({
     username: '',
@@ -28,18 +31,20 @@ function SignIn({ signInDispatch, authError, auth }) {
   if (auth.uid) return <Navigate to="/" />;
 
   return (
-    <section className="SignIn">
+    <section className={`SignIn ${styles.SignIn}`}>
       { authError
         ? <Error message={authError} />
         : (
           <form onSubmit={handleSubmit}>
             <Input
+              className={styles.input}
               onChange={handleChange}
               type="text"
               name="username"
               value={credentials.username}
             />
             <Button
+              className={styles.button}
               onSubmit={handleSubmit}
               txt="sign in"
               type="submit"

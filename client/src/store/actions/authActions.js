@@ -11,11 +11,7 @@ export const signOut = () => (dispatch) => {
 
 export const signUp = (newUser) => (dispatch) => {
   const username = newUser.username;
-  axios.post(`/api/${process.env.REACT_APP_WATCHA_API_KEY}/`, { username })
-    .then(res => {
-      localStorage.setItem('users', JSON.stringify(res.data))
-      return res;
-    })
+  axios.post(`/api/users/${process.env.REACT_APP_WATCHA_API_KEY}/`, { username })
     .then(res => dispatch({ type: types.SIGNUP_USER_SUCCESS, payload: res.data }))
     .catch(err => dispatch({ type: types.SIGNUP_USER_ERROR, err: err.response.data }))
 };
