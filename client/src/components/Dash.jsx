@@ -23,7 +23,8 @@ const Dash = ({auth, watcha: {watchas}, getUsersDispatch, users}) => {
 
   return (
     <section className={`Dash ${styles.Dash}`}>
-      <h3>You have {users.length - 1} watches</h3>
+      { users.length > 1 ? <h3 className={styles.h3}>You have {users.length - 1} watches</h3> : <h3>Waiting for watches ...</h3>}
+      { users.length > 1 ? <p className={styles.p}>Click on watch to start chat!</p> : <p className={styles.p}>We will send you a notification once you get watched</p>}
       <WatchList users={users.filter(user => user.uid !== auth.uid)} />
     </section>
   );

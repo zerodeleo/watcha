@@ -37,3 +37,40 @@ button:hover, .WatchItem:hover {
     color:rgba(0, 0, 0, 0.4);
 }
 
+.globe {
+    animation: rotation 15s infinite linear;
+}
+
+.fade-in {
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 1s;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }
+
+@media screen and (min-width: 760px) {
+    body {
+        width: 760px;
+        margin: auto;
+    }
+  }
+

@@ -32,17 +32,14 @@ const SignUp = ({ signUpDispatch, authError, auth }) => {
 
   return (
     <section className={`SignUp ${styles.SignUp}`}>
-      { authError
-        ? <Error mess age={authError} />
-        : (
-          < Form
-            handleChange={handleChange}
-            handleSubmit={handleSubmit}
-            value={credentials.username}
-            name='username'
-            txt='enter'
-          />
-        )}
+      < Form
+        handleChange={handleChange}
+        handleSubmit={handleSubmit}
+        value={credentials.username}
+        name='username'
+        txt='enter'
+        label='Enter your name to get started :'
+      />
     </section>
   );
 }

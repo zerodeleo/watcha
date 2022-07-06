@@ -1,13 +1,14 @@
-export const input = 'p-10 w-p-75 m-10 br-8 bs-28i ls-2 font-red-hat';
-export const button = 'button p-10 w-p-80 m-10 br-10 bs-28 font-red-hat uppercase ls-2 bold pointer';
+export const input = 'fade-in h-38 font-center m-10 w-p-100 br-8 bs-28i ls-2 font-red-hat';
+export const button = 'fade-in h-38 button m-10 w-p-100 br-10 bs-28 font-red-hat uppercase ls-2 bold pointer';
 export const wrapper = '';
-export const p = 'ls-2 font-center';
-export const h1 = 'font-stalemate fs-4 p-20';
-export const h2 = 'fs-2 p-20 font-center';
-export const h3 = 'fs-1-7 p-20 font-center';
+export const p = 'fade-in ls-2 font-center w-p-100';
+export const pFooter = 'color-b02 m-20';
+export const h1 = 'font-stalemate fs-4 p-20 color-b06';
+export const h2 = 'fade-in fs-2 font-center color-b08';
+export const h3 = 'fade-in fs-1-7 font-center color-b04';
 
 // Components
-export const App = 'font-red-hat';
+export const App = 'flex flex-col justify-center align-center font-red-hat';
 export const NavBar = '';
 export const SignedIn = '';
 export const SignIn = '';
@@ -16,7 +17,8 @@ export const Form = 'flex flex-col justify-center align-center';
 export const NavBarSignedOut = 'flex flex-col justify-center align-center';
 export const NavBarSignedIn = 'flex flex-col justify-center align-center';
 export const Description = '';
-export const Footer = 'absolute bottom w-p-100 font-center';
-export const Dash = 'flex flex-col justify-center align-center';
+export const Footer = 'flex justify-center';
+export const Dash = 'flex flex-col justify-center align-center w-p-90';
 export const WatchList = 'grid grid-3 w-p-100 font-center';
 export const WatchItem = 'bs-28 br-10 white m-10 p-10 pointer';
+export const Globe = 'fs-3';

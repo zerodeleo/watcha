@@ -1,15 +1,12 @@
 import React from 'react';
 import * as styles from '../../css/styles';
 
-const Description = () => {
+const Description = ({ txt }) => {
   return (
     <article className={`Description ${styles.Description}`}>
       <h3 className={styles.h3}>
-        Watcha thinking bout!?
+        {txt}
       </h3>
-      <p className={styles.p}>
-        Type a word in the input field below
-      </p>
     </article>);
 }
 

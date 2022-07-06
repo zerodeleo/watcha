@@ -5,7 +5,7 @@ import * as styles from '../../css/styles';
 const Footer = () => {
   return (
     <footer className={`Footer ${styles.Footer}`}>
-      made by: ZeroDeleo
+      <p className={styles.pFooter}>made by: ZeroDeleo</p>
     </footer>
   )
 }

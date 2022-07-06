@@ -7,9 +7,12 @@ import Button from '../layout/Button';
 // Styles
 import * as styles from '../../css/styles';
 
-const Form = ({ handleSubmit, handleChange, value, name, txt }) => {
+const Form = ({ handleSubmit, handleChange, value, name, txt, label }) => {
   return (
     <form className={`Form ${styles.Form}`} onSubmit={handleSubmit}>
+        <p className={styles.p}>
+          {label}
+        </p>
         <Input
           className={styles.input}
           onChange={handleChange}

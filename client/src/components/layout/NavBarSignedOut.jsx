@@ -1,15 +1,17 @@
 import React from 'react';
+
+// Components
+import Description from './Description';
+
 import * as styles from '../../css/styles';
 
 const NavBarSignedOut = () => {
   return (
     <article className={`NavBarSignedOut ${styles.NavBarSignedOut}`}>
-      <h1 className={styles.h1}>
-        Watcha
-      </h1>
-      <p className={styles.p}>
-        Enter your name to get started :
-      </p>
+      <h2 className={styles.h2}>
+        WELCOME!
+      </h2>
+      <Description txt='. . .' />
     </article>);
 }
 

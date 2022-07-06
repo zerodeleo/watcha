@@ -34,13 +34,14 @@ const SignedIn = ({ auth, addWatchaDispatch, watcha }) => {
 
   return( 
   <section className={`SignedIn ${styles.SignedIn}`}>
-    <Description />
+    <Description txt='Watcha thinking bout!?' />
     < Form
       handleChange={handleChange}
       handleSubmit={handleSubmit}
       value={newWatcha}
       name='watcha'
       txt='Enter'
+      label='Type a word in the input field below :'
     />
   </section>);
 }
