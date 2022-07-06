@@ -6,7 +6,7 @@ import * as styles from '../css/styles';
 const WatchItem = ({user}) => {
   return (
     <article className={`WatchItem ${styles.WatchItem}`}>
-      <p>{user.username}</p>
+      <p className={styles.pName}>{user.username}</p>
     </article>
   )
 }

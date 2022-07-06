@@ -5,6 +5,9 @@
 .lowercase {
     text-transform: lowercase;
 }
+.capitalize {
+    text-transform: capitalize;
+}
 
 .font-stalemate {
     font-family: 'Stalemate', cursive;

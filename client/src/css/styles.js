@@ -2,6 +2,7 @@ export const input = 'fade-in h-38 font-center m-10 w-p-100 br-8 bs-28i ls-2 fon
 export const button = 'fade-in h-38 button m-10 w-p-100 br-10 bs-28 font-red-hat uppercase ls-2 bold pointer';
 export const wrapper = '';
 export const p = 'fade-in ls-2 font-center w-p-100';
+export const pName = 'capitalize';
 export const pFooter = 'color-b02 m-20';
 export const h1 = 'font-stalemate fs-4 p-20 color-b06';
 export const h2 = 'fade-in fs-2 font-center color-b08';

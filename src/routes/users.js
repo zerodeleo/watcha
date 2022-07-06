@@ -18,7 +18,7 @@ router.route(`/`).get(async(req, res) => {
 
 router.route(`/`).post((req, res) => {
     const uid = uuidv4();
-    const username = req.body.username;
+    const username = req.body.username.toLowerCase();
 
     const newUpload = new User({ uid, username });
         newUpload.save()

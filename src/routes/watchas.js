@@ -2,13 +2,21 @@ const router = require('express').Router();
 let Watcha = require('../models/Watcha');
 const { v4: uuidv4 } = require('uuid');
 
+const configureTag = (tag) => {
+  let tagLowerCase = tag.toLowerCase();
+  if (/s$/.test(tagLowerCase)) {
+    tagLowerCase = tagLowerCase.replace(/s$/, '');
+  }
+  return tagLowerCase;
+}
+
 router.route(`/:uid`).get((req, res) => {
 
 });
 
 router.route(`/`).post(async (req, res) => {
     const wid = uuidv4();
-    const tag = req.body.watcha;
+    const tag = configureTag(req.body.watcha);
     const uid = req.body.uid;
     const watchas = [];
 
