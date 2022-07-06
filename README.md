@@ -98,9 +98,11 @@ lear
         - Heroku deployment     
         - ESlint         
         - Redux
-## 6. watcha-step-5
+## 5. watcha-step-5
 - ### Added styles to watcha-step-4 and NavBar
 - ### User is able to:
     - **Enter with name**
     - **Input watcha**
     - **See other who has the same watcha**
+## 6. watcha-step-6
+- ### Some retouches of step 5
