@@ -99,7 +99,6 @@ lear
         - ESlint         
         - Redux
 ## 5. watcha-step-5
-- ### Added styles to watcha-step-4 and NavBar
 - ### User is able to:
     - **Enter with name**
     - **Input watcha**
