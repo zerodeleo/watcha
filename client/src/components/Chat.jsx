@@ -27,6 +27,7 @@ const Chat = ({auth, watcha, updateChatDispatch, getChatDispatch}) => {
   const [messages, setMessages] = useState(watcha.messages);
   const [pinged, setPinged] = useState(false);
   if(watcha.tag === "") return <Navigate to="/" />
+  if(!auth.uid) return <Navigate to="/signup" />
 
   const sendMessage = () => {
     try {

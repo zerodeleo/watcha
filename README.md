@@ -135,3 +135,5 @@ lear
 - ### Fixed scroll in chat, navbar not visible in chat etc.
 ## 13. watcha-step-13
 - ### Error handling with Error component, also checking inputs with regex
+## 14. watcha-step-14
+- ### Fixed date format in chat msg
