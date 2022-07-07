@@ -70,7 +70,6 @@ const Chat = ({handleClick, auth, watcha, updateChatDispatch, getChatDispatch}) 
 };
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
   watcha: state.watcha
 }};

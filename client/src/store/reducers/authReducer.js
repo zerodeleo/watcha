@@ -11,7 +11,6 @@ const initState = {
 const authReducer = (state = initState, action) => {
   switch (action.type) {
     case types.SIGNUP_USER_SUCCESS:
-      console.log('signup success');
       return {
         ...state,
         uid: action.payload.uid,
@@ -19,7 +18,6 @@ const authReducer = (state = initState, action) => {
         authError: null,
       };
     case types.SIGNUP_USER_ERROR:
-      console.table('signup error ', action.err);
       return {
         ...state,
         authError: action.err,
