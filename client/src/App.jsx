@@ -42,7 +42,6 @@ const App = ({ logInDispatch }) => {
 }
 
 const mapStateToProps = state => {
-  console.log(state)
   return {
     auth: state.auth,
   }

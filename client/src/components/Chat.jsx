@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 // Actions to dispatch
 import { updateChat } from '../store/actions/chatActions';
@@ -16,7 +16,8 @@ import * as styles from '../css/styles';
 
 import io from 'socket.io-client';
 
-const Chat = ({handleClick, auth, watcha, updateChatDispatch, getChatDispatch}) => {
+const Chat = ({auth, watcha, updateChatDispatch, getChatDispatch}) => {
+  const navigate = useNavigate();
   const [message, setMessage] = useState('')
   const [messages, setMessages] = useState(watcha.messages);
   const [pinged, setPinged] = useState(false);
@@ -54,8 +55,12 @@ const Chat = ({handleClick, auth, watcha, updateChatDispatch, getChatDispatch}) 
     setMessage(e.target.value);
   }
 
+  const handleClick = (e) => {
+    e.preventDefault();
+    navigate('/');
+  }
+
   const handleKeypress = e => {
-    console.log(e);
     if (e.charCode === 13) {
       sendMessage();
     }
@@ -81,9 +86,9 @@ const Chat = ({handleClick, auth, watcha, updateChatDispatch, getChatDispatch}) 
 };
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
-  watcha: state.watcha
+  watcha: state.watcha,
+  auth: state.auth,
 }};
 
 const mapDispatchToProps = (dispatch) => ({

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 // Actions to dispatch
 import { getUsers } from '../store/actions/usersActions';
@@ -15,6 +15,7 @@ import * as styles from '../css/styles';
 
 const Dash = ({auth, watcha: {watchas}, getUsersDispatch, users}) => {
   const [toggleChat, setToggleChat] = useState(false);
+  const navigate = useNavigate();
   if (!auth.uid) return <Navigate to="/signup" />;
 
   useEffect(() => {
@@ -24,11 +25,10 @@ const Dash = ({auth, watcha: {watchas}, getUsersDispatch, users}) => {
   }, [])
 
   const handleClick = (e) => {
-    setToggleChat(!toggleChat);
+    navigate('/chat');
   }
 
   const handleKeypress = e => {
-    console.log('hello')
     if (e.charCode === 13) {
       toggleChat(!toggleChat);
     }
@@ -39,15 +39,9 @@ const Dash = ({auth, watcha: {watchas}, getUsersDispatch, users}) => {
       { users.length > 1 ? 
         <h3 className={styles.h3}>You have {users.length - 1} watches</h3> 
         : <><h3>Waiting for watches ...</h3><p className={styles.p}>We will send you a notification once you get watched</p></> }
-      { users.length > 1 && toggleChat ? 
-        null
-        : <div className={styles.fixed}><Button className={styles.button} txt="Enter chat" onClick={handleClick}/></div> }
-      {
-        toggleChat ?
-        <Chat users={users.filter(user => user.uid !== auth.uid)} auth={auth} handleClick={handleClick} />
-        // : <WatchList users={users.filter(user => user.uid !== auth.uid)} />
-        : null
-      }
+    <div className={styles.fixed}>
+      <Button className={styles.button} txt="Enter chat" onClick={handleClick}/>
+    </div>
     </section>
   );
 };

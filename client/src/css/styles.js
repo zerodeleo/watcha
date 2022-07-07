@@ -10,9 +10,9 @@ export const h3 = 'fade-in fs-1-5 ls-3 font-center color-b04';
 export const fixed = 'fixed bottom w-p-90 p-15';
 
 // For the Chat component
-const msgCommon = 'fade-in bg-w05 bs-4 br-5 p-10 scroll'
-export const userMsg = msgCommon + ' ' + 'font-right';
-export const msg = msgCommon + ' ' + '';
+const msgCommon = 'fade-in bg-w05 br-5 p-10 scroll'
+export const userMsg = msgCommon + ' ' + 'font-right bs-4';
+export const msg = msgCommon + ' ' + 'bs-4i';
 export const msgUsername = 'fs-07';
 export const msgMsg = 'm-10';
 export const msgCreatedAt = 'fs-07';
