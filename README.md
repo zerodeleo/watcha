@@ -137,3 +137,6 @@ lear
 - ### Error handling with Error component, also checking inputs with regex
 ## 14. watcha-step-14
 - ### Fixed date format in chat msg
+## 15. watcha-step-15
+- ### Fixed problem with routing in server 
+    - *production mode was sent to the wrong build path*
