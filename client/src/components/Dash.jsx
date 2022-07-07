@@ -52,7 +52,8 @@ const Dash = ({auth, watcha: {watchas, tag}, getUsersDispatch, users, resetWatch
         <>
           <h3 className={styles.h3}>{tag} has {users.length - 1} watches</h3> 
         </>
-        : <><h3>Waiting for watches ...</h3><p className={styles.p}>We will send you a notification once you get watched</p></> }
+        : <><h3 style={{textAlign: 'center'}}>Waiting for watches in <br/>&#34;{tag}&#34;</h3><p className={styles.p}>Be the first one to write in the <b>{tag}</b> chat!<br/></p></> }
+    <br/>
     <Button className={styles.button} name="enter_chat" txt="Enter chat" onClick={handleClick}/>
     <br/>
     <p>or</p>
