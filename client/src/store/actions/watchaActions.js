@@ -12,3 +12,7 @@ export const addWatcha = (watcha, uid) => (dispatch) => {
     .then(res => dispatch({ type: types.ADD_WATCHA_SUCCESS, payload: res.data }))
     .catch(err => dispatch({ type: types.ADD_WATCHA_ERROR, err: err.response.data }))
 };
+
+export const resetWatcha = () => (dispatch) => {
+  dispatch({ type: types.RESET_WATCHA })
+};

@@ -14,6 +14,10 @@ const initState = {
 
 const watchaReducer = (state = initState, action) => {
   switch (action.type) {
+    case types.RESET_WATCHA:
+      return {
+        ...initState
+      };
     case types.ADD_WATCHA_SUCCESS:
       return {
         ...state,

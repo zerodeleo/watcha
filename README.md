@@ -123,3 +123,11 @@ lear
     - **Chat with those users**
 ## 10. watcha-step-10
 - ### Fixed dash to navigate to chat instead of toggle
+## 11. watcha-step-11
+- ### User is able to:
+    - **Enter with name**
+        - *If localstorage has uid, user jumps directly to input watcha*
+    - **Input watcha**
+    - **Edit Watcha**
+    - **Enter chat with other users that has the same watcha**
+    - **Chat with those users**

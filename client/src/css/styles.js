@@ -8,6 +8,7 @@ export const h1 = 'z-500 sticky top left right font-center font-stalemate fs-5 l
 export const h2 = 'fade-in fs-2 ls-5 font-center color-b08';
 export const h3 = 'fade-in fs-1-5 ls-3 font-center color-b04';
 export const fixed = 'fixed bottom w-p-90 p-15';
+export const btnEditWatcha = 'h-40 bs-28 pl-30 pr-30 br-10 italic font-stalemate fs-2 capitalize pointer';
 
 // For the Chat component
 const msgCommon = 'fade-in bg-w05 br-5 p-10 scroll'
