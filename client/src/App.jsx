@@ -1,6 +1,7 @@
 import './css/index.css';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 // Components
 import Dash from './components/Dash';
@@ -12,7 +13,14 @@ import Globe from './components/layout/Globe';
 import SignUp from './components/auth/SignUp';
 import * as styles from './css/styles'
 
-function App() {
+// Actions
+import { logIn } from './store/actions/authActions';
+
+const App = ({ logInDispatch }) => {
+  useEffect(() => {
+    logInDispatch()
+  }, [])
+
   return (
     <Router>
       <div className={`App ${styles.App}`}>
@@ -33,4 +41,15 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = state => {
+  console.log(state)
+  return {
+    auth: state.auth,
+  }
+}
+
+const mapDispatchToProps = (dispatch) => ({
+  logInDispatch: () => dispatch(logIn()),  
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

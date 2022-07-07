@@ -69,7 +69,7 @@ const Chat = ({handleClick, auth, watcha, updateChatDispatch, getChatDispatch}) 
           placeholder="Message ..." 
           value={message} 
           onChange={handleChange}
-          autoFocus={true}
+          autoFocus
           className={`TextArea ${styles.TextArea}`} />
       </div>
       <div className={styles.wrapper}>
