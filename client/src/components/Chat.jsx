@@ -24,7 +24,7 @@ const Chat = ({handleClick, auth, watcha, updateChatDispatch, getChatDispatch}) 
 
   const sendMessage = () => {
     if (message === '' || /^\s*$/.test(message)) return;
-    const socket = io.connect(HOST);
+    const socket = io.connect();
     updateChatDispatch({watcha, auth, msg: message});
     setMessage('');
     socket.emit('new_chatmsg', { message });
@@ -40,7 +40,7 @@ const Chat = ({handleClick, auth, watcha, updateChatDispatch, getChatDispatch}) 
   }, [watcha]);
 
   useEffect(() => {
-    const socket = io.connect(HOST);
+    const socket = io.connect();
     socket.on('recieved_new_chatmsg', (data) => {
       getChatDispatch(watcha.tag);
     })
