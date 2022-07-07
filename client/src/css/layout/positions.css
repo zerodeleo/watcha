@@ -10,6 +10,11 @@
     position: relative;
 }
 
+.sticky {
+    position: sticky;
+    position: -webkit-sticky;
+}
+
 .center {
     position: center;
 }

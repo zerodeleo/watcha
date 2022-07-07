@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 // Components
 import Dash from './components/Dash';
+import Chat from './components/Chat';
 import NavBar from './components/layout/NavBar';
 import Footer from './components/layout/Footer';
 import SignedIn from './components/layout/SignedIn';
@@ -24,6 +25,7 @@ function App() {
           <Route exact path="/watcha" element={<SignedIn />} />
           <Route exact path="/" element={<Dash />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/chat" element={<Chat />} />
         </Routes>
         <Footer />
       </div>

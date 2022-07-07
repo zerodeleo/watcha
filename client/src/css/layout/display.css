@@ -16,6 +16,9 @@
 .flex-wrap {
     flex-wrap: wrap;
 }
+.justify-between {
+    justify-content: space-between;
+}
 .justify-center {
     justify-content: center;
 }
@@ -60,4 +63,10 @@
 }
 .grid-4 {
     grid-template-columns: repeat(4, 1fr);
+}
+.hidden {
+    overflow: hidden;
+}
+.scroll {
+    overflow: scroll;
 }

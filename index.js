@@ -3,6 +3,8 @@
 const express = require('express');
 const app = express();
 require("dotenv").config();
+const http = require('http');
+const { Server } = require("socket.io");
 
 //config body-parser to post data
 const cors = require('cors');
@@ -10,7 +12,16 @@ const bodyParser = require('body-parser')
 app.use(cors())
 app.use(bodyParser.urlencoded({ limit: '50mb', extended:true }))
 app.use(bodyParser.json({ limit: '50mb' }))
-app.use(cors())
+
+
+const server = http.createServer(app);
+
+const io = new Server(server, {
+    cors: {
+        origin: 'http://localhost:3000',
+        methods: ["GET", "POST"]
+    },
+});
 
 // Connect to MongoDB
 const mongoose = require('mongoose');
@@ -38,6 +49,16 @@ if (process.env.NODE_ENV === "production") {
 
 const PORT = process.env.PORT || 4000;
 
-app.listen(PORT, () => {
+io.on('connection', (socket) => {
+    console.log('a user connected');
+    socket.on('new_watcha', (msg) => {
+        console.log('watcha: ' + msg);
+      });
+    socket.on('new_chatmsg', (users, user) => {
+        socket.broadcast.emit("recieved_new_chatmsg")
+      });
+  });
+
+server.listen(PORT, () => {
     console.log(`Charlie is running on port ${PORT}`);
 })

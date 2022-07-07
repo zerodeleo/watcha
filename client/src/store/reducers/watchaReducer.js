@@ -6,6 +6,9 @@ const initState = {
   wid: null,
   tag: '',
   watchas: [],
+  messages: [
+    {username: 'ZeroDeleo', msg: "It's pretty quite here... write a message :)", uid: 'admin', createdAt: 'Break of dawn'},
+  ],
   watchaError: null,
 };
 
@@ -24,6 +27,28 @@ const watchaReducer = (state = initState, action) => {
         ...state,
         watchaError: action.err,
       };
+    case types.UPDATE_CHAT_SUCCESS:
+      return {
+        ...state,
+        watchaError: null,
+      }
+    case types.UPDATE_CHAT_ERROR:
+      return {
+        ...state,
+        watchaError: action.err,
+      }
+    case types.GET_CHAT_SUCCESS:
+      console.log(action.payload);
+      return {
+        ...state,
+        messages: action.payload,
+        watchaError: null,
+      }
+    case types.GET_CHAT_ERROR:
+      return {
+        ...state,
+        watchaError: action.err,
+      }
     default:
       return state;
   }

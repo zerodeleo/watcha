@@ -10,6 +10,7 @@
 @import 'layout/line-height.css';
 @import 'layout/transform.css';
 @import 'layout/box-shadow.css';
+@import 'layout/z-index.css';
 
 html {
     height: 100%;
@@ -32,6 +33,10 @@ button, input, p, h1 {
     outline: none;
 }
 
+button {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
 button:hover, .WatchItem:hover {
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px inset, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px inset, rgba(0, 0, 0, 0.2) 0px -3px 0px;
     color:rgba(0, 0, 0, 0.4);
@@ -51,6 +56,18 @@ button:hover, .WatchItem:hover {
 	animation-iteration-count: 1;
 	animation-timing-function: ease-in;
 	animation-duration: 1s;
+}
+
+textarea {
+  border: none;
+  overflow: auto;
+  outline: none;
+
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+
+  resize: none; /*remove the resize handle on the bottom right*/
 }
 
 @keyframes fadeInOpacity {
