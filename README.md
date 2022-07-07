@@ -114,3 +114,10 @@ lear
     - **Chat with those users**
 ## 8. watcha-step-8
 - ### step 7 now works in deployment
+## 9. watcha-step-9
+- ### User is able to:
+    - **Enter with name**
+        - *If localstorage has uid, user jumps directly to input watcha*
+    - **Input watcha**
+    - **Enter chat with other users that has the same watcha**
+    - **Chat with those users**
