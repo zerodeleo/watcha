@@ -15,7 +15,7 @@ import * as styles from '../css/styles';
 
 import io from 'socket.io-client';
 
-const HOST = location.origin.replace(/^http/, 'ws')
+const HOST = process.env.REACT_APP_MODE === 'development' ? 'https://localhost:4000' : 'https://zerodeleo-watcha.herokuapp.com';
 
 const Chat = ({handleClick, auth, watcha, updateChatDispatch, getChatDispatch}) => {
   const [message, setMessage] = useState('')
