@@ -15,6 +15,8 @@ import * as styles from '../css/styles';
 
 import io from 'socket.io-client';
 
+const HOST = location.origin.replace(/^http/, 'ws')
+
 const Chat = ({handleClick, auth, watcha, updateChatDispatch, getChatDispatch}) => {
   const [message, setMessage] = useState('')
   const [messages, setMessages] = useState(watcha.messages);
@@ -22,7 +24,7 @@ const Chat = ({handleClick, auth, watcha, updateChatDispatch, getChatDispatch}) 
 
   const sendMessage = () => {
     if (message === '' || /^\s*$/.test(message)) return;
-    const socket = io.connect('http://localhost:4000');
+    const socket = io.connect(HOST);
     updateChatDispatch({watcha, auth, msg: message});
     setMessage('');
     socket.emit('new_chatmsg', { message });
@@ -38,7 +40,7 @@ const Chat = ({handleClick, auth, watcha, updateChatDispatch, getChatDispatch}) 
   }, [watcha]);
 
   useEffect(() => {
-    const socket = io.connect('http://localhost:4000');
+    const socket = io.connect(HOST);
     socket.on('recieved_new_chatmsg', (data) => {
       getChatDispatch(watcha.tag);
     })
