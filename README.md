@@ -140,3 +140,5 @@ lear
 ## 15. watcha-step-15
 - ### Fixed problem with routing in server 
     - *production mode was sent to the wrong build path*
+## 16. watcha-step-16
+- ### Fixed media styling

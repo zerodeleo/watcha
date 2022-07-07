@@ -12,7 +12,7 @@ export const fixed = 'fixed bottom w-p-90 p-15';
 export const btnEditWatcha = 'h-40 bs-28 pl-30 pr-30 br-10 italic font-stalemate fs-2 capitalize pointer';
 
 // For the Chat component
-const msgCommon = 'fade-in bg-w05 br-5 p-10 scroll'
+const msgCommon = 'fade-in bg-w05 br-5 p-10'
 export const userMsg = msgCommon + ' ' + 'font-right bs-4';
 export const msg = msgCommon + ' ' + 'bs-4i';
 export const msgUsername = 'fs-07';
@@ -35,8 +35,9 @@ export const Dash = 'flex flex-col justify-center align-center w-p-90';
 export const WatchList = 'flex flex-col font-center';
 export const WatchItem = 'flex m-5';
 export const Globe = 'fs-3 mt-5 mb-5';
-export const Chat = 'bg z-500 scroll w-p-90 p-25 mb-80';
+export const Chat = 'bg z-500 w-p-90 p-25 mb-80';
 export const TextArea = 'pl-20 pr-20 br-15 bs-28i h-50 w-p-100 color-b08 font-red-hat mt-10';
 export const ChatMsg = 'mb-15';
 export const ChatBottom = 'fixed bottom right left p-20 bg bs-10 h-120';
 export const Messages = '';
+export const ScrollDiv = 'h-60';

@@ -105,7 +105,7 @@ const Chat = ({auth, watcha, updateChatDispatch, getChatDispatch}) => {
           <div>
             {messages.map(msg => <ChatMsg key={msg.createdAt} msg={msg} uid={auth.uid}/>)}
           </div>
-          <div ref={bottomRef} style={{height: '60px'}}/>
+          <div className={`ScrollDiv ${styles.ScrollDiv}`} ref={bottomRef} />
         </article>
         <section className={`ChatBottom ${styles.ChatBottom}`}>
           <article className={styles.textarea}>
