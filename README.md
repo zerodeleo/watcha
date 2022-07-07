@@ -121,5 +121,5 @@ lear
     - **Input watcha**
     - **Enter chat with other users that has the same watcha**
     - **Chat with those users**
-## 9. watcha-step-10
+## 10. watcha-step-10
 - ### Fixed dash to navigate to chat instead of toggle
