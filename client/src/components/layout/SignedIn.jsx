@@ -7,6 +7,7 @@ import { Navigate } from 'react-router-dom';
 // Components
 import Form from './Form';
 import Description from './Description';
+import Error from './Error';
 
 // Styles
 import * as styles from '../../css/styles';
@@ -18,9 +19,11 @@ const SignedIn = ({ auth, addWatchaDispatch, watcha }) => {
   if (!auth.uid) return <Navigate to="/signup" />;
   if (watcha.wid) return <Navigate to="/" />;
 
+  const [error, setError] = useState({isError: false, msg: ''});
   const [newWatcha, setNewWatcha] = useState('');
 
   const handleChange = (e) => {
+    setError(false);
     const { value } = e.target;
     if(/ /.test(value)) return;
     setNewWatcha(value);
@@ -28,8 +31,17 @@ const SignedIn = ({ auth, addWatchaDispatch, watcha }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addWatchaDispatch(newWatcha, auth.uid);
-    <Navigate to="/" />;
+    try {
+      if(!/[a-z]/i.test(newWatcha)) {
+        setError({isError: !error, msg: "Please type a word"});
+        return;
+      }
+      addWatchaDispatch(newWatcha, auth.uid);
+      <Navigate to="/" />;
+    } catch (err) {
+      console.error(err);
+      setError({isError: !error, msg: 'Something happened, plz reload...'});
+    }
   };
 
   return( 
@@ -43,6 +55,7 @@ const SignedIn = ({ auth, addWatchaDispatch, watcha }) => {
       txt='Enter'
       label='Type a word in the input field below :'
     />
+    { error ? <Error error={error} /> : null }
   </section>);
 }
 

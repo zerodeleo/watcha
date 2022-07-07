@@ -40,7 +40,7 @@ const App = ({ logInDispatch }) => {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/chat" element={<Chat />} />
         </Routes>
-        <Footer />
+        { toggleNavBar ? <Footer /> : null }
       </div>
     </Router>
   );

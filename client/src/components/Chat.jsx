@@ -11,6 +11,7 @@ import ChatMsg from './ChatMsg';
 import Button from './layout/Button';
 import Input from './layout/Input';
 import { Context } from './Context';
+import Error from './error/Error';
 
 // Styles
 import * as styles from '../css/styles';
@@ -19,6 +20,7 @@ import io from 'socket.io-client';
 
 const Chat = ({auth, watcha, updateChatDispatch, getChatDispatch}) => {
   const { setToggleNavBar } = useContext(Context);
+  const [error, setError] = useState({isError: false, msg: ''});
   const bottomRef = useRef(null);
   const navigate = useNavigate();
   const [message, setMessage] = useState('')
@@ -27,29 +29,49 @@ const Chat = ({auth, watcha, updateChatDispatch, getChatDispatch}) => {
   if(watcha.tag === "") return <Navigate to="/" />
 
   const sendMessage = () => {
-    if (message === '' || /^\s*$/.test(message)) return;
-    const socket2 = io.connect();
-    updateChatDispatch({watcha, auth, msg: message});
-    setMessage('');
-    socket2.emit('new_chatmsg', { message });
-    setPinged(!pinged);
+    try {
+      if (message === '' || /^\s*$/.test(message)) return;
+      const socket2 = io.connect();
+      updateChatDispatch({watcha, auth, msg: message});
+      setMessage('');
+      socket2.emit('new_chatmsg', { message });
+      setPinged(!pinged);
+    } catch (err) {
+      console.error(err);
+      setError({isError: !error, msg: 'Something happened, plz reload...'});
+    }
   }
 
   useEffect(() => {
-    getChatDispatch(watcha.tag);
+    try {
+      getChatDispatch(watcha.tag);
+    } catch (err) {
+      console.error(err);
+      setError({isError: !error, msg: 'Something happened, plz reload...'});
+    }
   }, []);
 
   useEffect(() => {
-    setMessages(watcha.messages);
+    try {
+      setMessages(watcha.messages);
+    } catch {
+      console.error(err);
+      setError({isError: !error, msg: 'Something happened, plz reload...'});
+    }
   }, [watcha]);
 
   useEffect(() => {
-    const socket = io.connect();
-    socket.on('recieved_new_chatmsg', (data) => {
-      getChatDispatch(watcha.tag);
-    });
-    return () => {
-      socket.disconnect();
+    try {
+      const socket = io.connect();
+      socket.on('recieved_new_chatmsg', (data) => {
+        getChatDispatch(watcha.tag);
+      });
+      return () => {
+        socket.disconnect();
+      }
+    } catch (err) {
+      console.error(err);
+      setError({isError: !error, msg: 'Something happened, plz reload...'});
     }
   }, [pinged])
 
@@ -60,7 +82,7 @@ const Chat = ({auth, watcha, updateChatDispatch, getChatDispatch}) => {
   const handleChange = (e) => {
     e.preventDefault();
     const { value } = e.target;
-    setMessage(e.target.value);
+    setMessage(value);
   }
 
   const handleClick = (e) => {
@@ -76,28 +98,30 @@ const Chat = ({auth, watcha, updateChatDispatch, getChatDispatch}) => {
 };
 
   return (
-    <section className={`Chat ${styles.Chat}`} onKeyPress={handleKeypress} >
-      <article className={`Messages ${styles.Messages}`}>
-        <div>
-          {messages.map(msg => <ChatMsg key={msg.createdAt} msg={msg} uid={auth.uid}/>)}
-        </div>
-        <div ref={bottomRef}/>
-      </article>
-      <section className={`ChatBottom ${styles.ChatBottom}`}>
-        <article className={styles.textarea}>
-          <Input
-            placeholder="Message ..." 
-            value={message} 
-            onChange={handleChange}
-            autoFocus
-            className={`TextArea ${styles.TextArea}`} />
+    <>{ error ? <Error error={error} /> : null }
+      <section className={`Chat ${styles.Chat}`} onKeyPress={handleKeypress} >
+        <article className={`Messages ${styles.Messages}`}>
+          <div>
+            {messages.map(msg => <ChatMsg key={msg.createdAt} msg={msg} uid={auth.uid}/>)}
+          </div>
+          <div ref={bottomRef} style={{height: '60px'}}/>
         </article>
-        <article className={styles.chatBtnWrapper}>
-          <Button className={styles.button} style={{width: "180px"}} txt="Exit chat" onClick={handleClick} />
-          <Button className={styles.button} style={{marginLeft: "20px"}} type="submit" txt="Send" onClick={sendMessage} />
-        </article>
+        <section className={`ChatBottom ${styles.ChatBottom}`}>
+          <article className={styles.textarea}>
+            <Input
+              placeholder="Message ..." 
+              value={message} 
+              onChange={handleChange}
+              autoFocus
+              className={`TextArea ${styles.TextArea}`} />
+          </article>
+          <article className={styles.chatBtnWrapper}>
+            <Button className={styles.button} style={{width: "180px"}} txt="Exit chat" onClick={handleClick} />
+            <Button className={styles.button} style={{marginLeft: "20px"}} type="submit" txt="Send" onClick={sendMessage} />
+          </article>
+        </section> 
       </section>
-    </section>
+    </>
   );
 };
 

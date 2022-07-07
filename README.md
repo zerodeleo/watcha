@@ -133,3 +133,5 @@ lear
     - **Chat with those users**
 ## 12. watcha-step-12
 - ### Fixed scroll in chat, navbar not visible in chat etc.
+## 13. watcha-step-13
+- ### Error handling with Error component, also checking inputs with regex

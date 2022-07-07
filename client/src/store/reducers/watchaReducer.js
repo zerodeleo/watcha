@@ -7,7 +7,7 @@ const initState = {
   tag: '',
   watchas: [],
   messages: [
-    {username: 'ZeroDeleo', msg: "It's pretty quite here... write a message :)", uid: 'admin', createdAt: 'Break of dawn'},
+    {username: 'WATCHA', msg: "It's pretty quite here... write a message :)", uid: 'admin', createdAt: 'Break of dawn'},
   ],
   watchaError: null,
 };
@@ -42,9 +42,12 @@ const watchaReducer = (state = initState, action) => {
         watchaError: action.err,
       }
     case types.GET_CHAT_SUCCESS:
+      console.log('payload, ', action);
+      const messagesArr = [ ... action.payload ]
+      if(action.payload.length < 1) messagesArr.splice(0, 0, initState.messages[0])
       return {
         ...state,
-        messages: action.payload,
+        messages: messagesArr,
         watchaError: null,
       }
     case types.GET_CHAT_ERROR:
