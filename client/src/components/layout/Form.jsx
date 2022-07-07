@@ -14,6 +14,7 @@ const Form = ({ handleSubmit, handleChange, value, name, txt, label }) => {
           {label}
         </p>
         <Input
+          autoFocus
           className={styles.input}
           onChange={handleChange}
           type="name"

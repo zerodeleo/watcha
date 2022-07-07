@@ -27,13 +27,20 @@ const Dash = ({auth, watcha: {watchas}, getUsersDispatch, users}) => {
     setToggleChat(!toggleChat);
   }
 
+  const handleKeypress = e => {
+    console.log('hello')
+    if (e.charCode === 13) {
+      toggleChat(!toggleChat);
+    }
+  };
+
   return (
-    <section className={`Dash ${styles.Dash}`}>
+    <section className={`Dash ${styles.Dash}`} >
       { users.length > 1 ? 
         <h3 className={styles.h3}>You have {users.length - 1} watches</h3> 
         : <><h3>Waiting for watches ...</h3><p className={styles.p}>We will send you a notification once you get watched</p></> }
       { users.length > 1 && toggleChat ? 
-        <div className={styles.fixed}><Button className={styles.button} txt="Exit chat" onClick={handleClick}/></div>
+        null
         : <div className={styles.fixed}><Button className={styles.button} txt="Enter chat" onClick={handleClick}/></div> }
       {
         toggleChat ?

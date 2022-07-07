@@ -52,7 +52,7 @@ const PORT = process.env.PORT || 4000;
 io.on('connection', (socket) => {
     console.log('a user connected');
     socket.on('new_watcha', (msg) => {
-        console.log('watcha: ' + msg);
+        socket.broadcast.emit("recieved_new_watcha")
       });
     socket.on('new_chatmsg', (users, user) => {
         socket.broadcast.emit("recieved_new_chatmsg")

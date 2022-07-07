@@ -9,13 +9,12 @@ import { getChat } from '../store/actions/chatActions';
 // Components
 import ChatMsg from './ChatMsg';
 import Button from './layout/Button';
+import Input from './layout/Input';
 
 // Styles
 import * as styles from '../css/styles';
 
 import io from 'socket.io-client';
-
-const HOST = '/'
 
 const Chat = ({handleClick, auth, watcha, updateChatDispatch, getChatDispatch}) => {
   const [message, setMessage] = useState('')
@@ -55,15 +54,27 @@ const Chat = ({handleClick, auth, watcha, updateChatDispatch, getChatDispatch}) 
     setMessage(e.target.value);
   }
 
+  const handleKeypress = e => {
+    console.log(e);
+    if (e.charCode === 13) {
+      sendMessage();
+    }
+};
+
   return (
-    <section className={`Chat ${styles.Chat}`}>
+    <section className={`Chat ${styles.Chat}`} onKeyPress={handleKeypress} >
       {messages.map(msg => <ChatMsg key={msg.createdAt} msg={msg} uid={auth.uid}/>)}
       <div className={styles.textarea}>
-        <input placeholder="Message ..." value={message} onChange={handleChange} className={`TextArea ${styles.TextArea}`}/>
+        <Input 
+          placeholder="Message ..." 
+          value={message} 
+          onChange={handleChange}
+          autoFocus={true}
+          className={`TextArea ${styles.TextArea}`} />
       </div>
       <div className={styles.wrapper}>
         <Button className={styles.button} style={{width: "180px"}} txt="Exit chat" onClick={handleClick} />
-        <Button className={styles.button} style={{marginLeft: "20px"}} txt="Send" onClick={sendMessage} />
+        <Button className={styles.button} style={{marginLeft: "20px"}} type="submit" txt="Send" onClick={sendMessage} />
       </div>
     </section>
   );
