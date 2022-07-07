@@ -112,3 +112,5 @@ lear
     - **Input watcha**
     - **Enter chat with other users that has the same watcha**
     - **Chat with those users**
+## 8. watcha-step-8
+- ### step 7 now works in deployment
