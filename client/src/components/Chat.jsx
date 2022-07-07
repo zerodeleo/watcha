@@ -15,8 +15,6 @@ import * as styles from '../css/styles';
 
 import io from 'socket.io-client';
 
-const HOST = process.env.REACT_APP_MODE === 'development' ? 'https://localhost:4000' : 'https://zerodeleo-watcha.herokuapp.com';
-
 const Chat = ({handleClick, auth, watcha, updateChatDispatch, getChatDispatch}) => {
   const [message, setMessage] = useState('')
   const [messages, setMessages] = useState(watcha.messages);
@@ -24,7 +22,7 @@ const Chat = ({handleClick, auth, watcha, updateChatDispatch, getChatDispatch}) 
 
   const sendMessage = () => {
     if (message === '' || /^\s*$/.test(message)) return;
-    const socket = io.connect(HOST);
+    const socket = io.connect();
     updateChatDispatch({watcha, auth, msg: message});
     setMessage('');
     socket.emit('new_chatmsg', { message });
@@ -40,7 +38,7 @@ const Chat = ({handleClick, auth, watcha, updateChatDispatch, getChatDispatch}) 
   }, [watcha]);
 
   useEffect(() => {
-    const socket = io.connect(HOST);
+    const socket = io.connect();
     socket.on('recieved_new_chatmsg', (data) => {
       getChatDispatch(watcha.tag);
     })
