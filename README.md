@@ -106,3 +106,9 @@ lear
     - **See other who has the same watcha**
 ## 6. watcha-step-6
 - ### Some retouches of step 5
+## 7. watcha-step-7
+- ### User is able to:
+    - **Enter with name**
+    - **Input watcha**
+    - **Enter chat with other users that has the same watcha**
+    - **Chat with those users**
