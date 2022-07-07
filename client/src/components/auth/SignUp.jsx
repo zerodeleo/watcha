@@ -38,6 +38,10 @@ const SignUp = ({ signUpDispatch, authError, auth }) => {
         setError({isError: !error, msg: "Only characters allowed as name.. unless you're Musk"});
         return;
       }
+      if(/zerodeleo/i.test(credentials.username)) {
+        setError({isError: !error, msg: "The name ZeroDeleo is preserved for the amazing developer"});
+        return;
+      }
       signUpDispatch(credentials);
     } catch (err) {
       console.error(err);
