@@ -1,5 +1,5 @@
 import './css/index.css';
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -11,12 +11,17 @@ import Footer from './components/layout/Footer';
 import SignedIn from './components/layout/SignedIn';
 import Globe from './components/layout/Globe';
 import SignUp from './components/auth/SignUp';
-import * as styles from './css/styles'
+import { Context } from './components/Context';
+
+// Styles
+import * as styles from './css/styles';
 
 // Actions
 import { logIn } from './store/actions/authActions';
 
 const App = ({ logInDispatch }) => {
+  const { toggleNavBar, setToggleNavBar } = useContext(Context);
+
   useEffect(() => {
     logInDispatch()
   }, [])
@@ -24,11 +29,11 @@ const App = ({ logInDispatch }) => {
   return (
     <Router>
       <div className={`App ${styles.App}`}>
-        <h1 className={styles.h1}>
+        { toggleNavBar ? <h1 className={styles.h1}>
           Watcha
-        </h1>
-        <Globe />
-        <NavBar />
+        </h1> : null }
+        { toggleNavBar ? <Globe /> : null }
+        { toggleNavBar ? <NavBar /> : null }
         <Routes>
           <Route exact path="/watcha" element={<SignedIn />} />
           <Route exact path="/" element={<Dash />} />

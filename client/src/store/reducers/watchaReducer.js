@@ -42,7 +42,6 @@ const watchaReducer = (state = initState, action) => {
         watchaError: action.err,
       }
     case types.GET_CHAT_SUCCESS:
-      console.log(action.payload);
       return {
         ...state,
         messages: action.payload,

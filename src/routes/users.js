@@ -15,6 +15,7 @@ router.route(`/`).get(async(req, res) => {
         .then(data => res.json(data))
         .catch(err => res.status(400).json(err.message));
 });
+
 router.route(`/:uid`).get((req, res) => {
     const uid = req.params.uid;
     User.find({ uid })

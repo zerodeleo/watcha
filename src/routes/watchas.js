@@ -15,10 +15,6 @@ router.route(`/messages`).get((req, res) => {
   Watcha.find({ tag })
     .then(data => res.json(data[0].messages))
     .catch(err => res.status(400).json(err.message))
-  // res.json([
-  //   {username: 'julia', msg: 'hello2', uid: '', createdAt: '1'},
-  //   {username: 'anton', msg: 'yo2', uid: '', createdAt: '2'},
-  // ])
 });
 
 router.route(`/:tag`).post((req, res) => {

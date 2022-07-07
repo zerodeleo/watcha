@@ -131,3 +131,5 @@ lear
     - **Edit Watcha**
     - **Enter chat with other users that has the same watcha**
     - **Chat with those users**
+## 12. watcha-step-12
+- ### Fixed scroll in chat, navbar not visible in chat etc.
